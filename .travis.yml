@@ -1,9 +1,10 @@
-matrix:
-  include:
-    - rvm: 2.2
-    - rvm: 2.3
-    - rvm: 2.4
-    - rvm: ruby-head
+language: ruby
+
+rvm:
+  - 2.2
+  - 2.3
+  - 2.4
+  - ruby-head
 
 before_install:
   - gem update --system
