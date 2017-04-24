@@ -10,3 +10,4 @@ gem 'pry', require: false
 gem 'rspec'
 gem 'rubocop', require: false
 gem 'simplecov', require: false
+gem 'codeclimate-test-reporter', require: false

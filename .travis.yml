@@ -1,5 +1,7 @@
 language: ruby
 
+cache: bundler
+
 rvm:
   - 2.2
   - 2.3.4
@@ -12,3 +14,11 @@ before_install:
 
 install:
   - bundle install --retry=3 --jobs=4
+
+script:
+  - bundle exec rake
+  - bundle exec codeclimate-test-reporter
+
+addons:
+  code_climate:
+    repo_token: 36c65c55eca473af858016fb96d16525458b4c1e9e3cfa1b3f47dde27c31285d
