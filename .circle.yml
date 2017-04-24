@@ -1,0 +1,25 @@
+dependencies:
+  cache_directories:
+    - ~/.rvm/rubies
+    - vendor
+  ovverride:
+    - >
+      case $CIRCLE_NODE_INDEX in
+        0) rvm-exec 2.2 bash -c "gem install bundler; bundle check --path=vendor/bundle_2.2 || bundle install --path=vendor/bundle_2.2" ;;
+        1) rvm-exec 2.3 bash -c "gem install bundler; bundle check --path=vendor/bundle_2.3 || bundle install --path=vendor/bundle_2.3" ;;
+        2) rvm-exec 2.4 bash -c "gem install bundler; bundle check --path=vendor/bundle_2.4 || bundle install --path=vendor/bundle_2.4" ;;
+        3) rvm-exec ruby-head bash -c "gem install bundler; bundle check --path=vendor/bundle_head || bundle install --path=vendor/bundle_head" ;;
+      esac
+
+test:
+  ovverride:
+    - bash -c "$CMD":
+        parallel: true
+        environment:
+          CMD: >
+            case $CIRCLE_NODE_INDEX in
+              0) rvm-exec 2.2 bundle exec rake
+              1) rvm-exec 2.3 bundle exec rake
+              2) rvm-exec 2.4 bundle exec rake
+              3) rvm-exec ruby-head bundle exec rake
+            esac
