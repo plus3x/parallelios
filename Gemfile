@@ -11,3 +11,7 @@ gem 'pry', require: false
 gem 'rspec'
 gem 'rubocop', require: false
 gem 'simplecov', require: false
+
+group :doc do
+  gem 'inch', require: false
+end
