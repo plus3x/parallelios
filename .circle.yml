@@ -13,13 +13,12 @@ dependencies:
 
 test:
   ovverride:
-    - bash -c "$CMD":
+    - ? |
+        case $CIRCLE_NODE_INDEX in
+          0) rvm-exec 2.2 bundle exec rake
+          1) rvm-exec 2.3 bundle exec rake
+          2) rvm-exec 2.4 bundle exec rake
+          3) rvm-exec ruby-head bundle exec rake
+        esac
+      :
         parallel: true
-        environment:
-          CMD: >
-            case $CIRCLE_NODE_INDEX in
-              0) rvm-exec 2.2 bundle exec rake
-              1) rvm-exec 2.3 bundle exec rake
-              2) rvm-exec 2.4 bundle exec rake
-              3) rvm-exec ruby-head bundle exec rake
-            esac
