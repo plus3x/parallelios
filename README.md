@@ -5,6 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/plus3x/parallelios/badges/gpa.svg)](https://codeclimate.com/github/plus3x/parallelios)
 [![Inline docs](http://inch-ci.org/github/plus3x/parallelios.svg)](http://inch-ci.org/github/plus3x/parallelios)
 [![Dependency Status](https://gemnasium.com/plus3x/parallelios.svg)](https://gemnasium.com/plus3x/parallelios)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fplus3x%2Fparallelios.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fplus3x%2Fparallelios?ref=badge_shield)
 
 # Parallelios
 
