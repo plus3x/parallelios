@@ -5,7 +5,7 @@ module Parallelios
   #
   # Examples
   #
-  #   gem_version #=> Gem::Version.new("0.1.0.alpha")
+  #   gem_version # => Gem::Version.new("0.1.0.alpha")
   #
   # Returns Gem::Version
   def self.gem_version
@@ -30,7 +30,7 @@ module Parallelios
     #
     # Examples
     #
-    #   STRING #=> "0.1.0.alfa"
+    #   STRING # => "0.1.0.alfa"
     #
     # Returns String
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')

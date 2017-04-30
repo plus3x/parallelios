@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     parallelios (0.1.0.alpha)
+      thor
 
 GEM
   remote: https://rubygems.org/
