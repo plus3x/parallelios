@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'thor'
+require_relative '../parallelios'
 
 module Parallelios
   # Command-Line Interfaces of project
@@ -36,7 +37,11 @@ module Parallelios
     Tests running...
     LONGDESC
 
-    method_option :config, type: :string, aliases: '-c', banner: 'Specify a configuration file(parallelios.yml)'
+    method_option :config,
+                  type: :string,
+                  default: 'config/parallelios.yml',
+                  aliases: '-c',
+                  banner: 'Specify a configuration file(parallelios.yml)'
 
     # Start tests.
     #
@@ -46,7 +51,9 @@ module Parallelios
     #
     # Returns Integer.
     def start
-      puts devices
+      puts options
+      config = Configuration.new(options)
+      puts config.build
       exit(0)
     end
 

@@ -1,0 +1,7 @@
+build:
+  workspace: 'Projects/Project.xcworkspace'
+  scheme: 'Project'
+  destination:
+    platform: 'iOS Simulator'
+    name: 'iPhone 7'
+    os: '10.3'
