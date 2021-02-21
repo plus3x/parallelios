@@ -7,7 +7,7 @@ module Parallelios
     # Build configuration
     class Build
       # OPTIONS contains all options implemented for building
-      OPTIONS = %i(workspace scheme destination configuration).freeze
+      OPTIONS = %i(workspace scheme destination configuration only_testing).freeze
 
       attr_reader(*OPTIONS)
 
@@ -44,7 +44,7 @@ module Parallelios
       def to_s
         OPTIONS
           .reject { |v| send(v).nil? }
-          .map { |v| "-#{v} \"#{send(v)}\"" }
+          .map(&method(:option_string))
           .join(' ')
       end
 
@@ -54,6 +54,20 @@ module Parallelios
         destination_options = options[:destination] || options['destination']
 
         Destination.new(destination_options) if destination_options
+      end
+
+      def option_string(option_name)
+        if option_name == :only_testing
+          tests = send(option_name)
+
+          if tests.one?
+            "-only-testing:#{tests.first.gsub(' ', '\\ ')}"
+          else
+            "-only-testing:{#{tests.join(',').gsub(' ', '\ ')}}"
+          end
+        else
+          "-#{option_name} \"#{send(option_name)}\""
+        end
       end
     end
   end

@@ -54,6 +54,7 @@ module Parallelios
       puts options
       config = Configuration.new(options)
       puts config.build
+      Builder.new(config.build).run
       exit(0)
     end
 
